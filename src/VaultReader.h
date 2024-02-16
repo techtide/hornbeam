@@ -1,11 +1,7 @@
 #ifndef VAULT_READER_H
 #define VAULT_READER_H
 
-#include <filesystem>
-#include <fstream>
-#include <iostream>
-#include <string>
-#include <vector>
+#include "core.h"
 
 namespace hornbeam
 {

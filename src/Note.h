@@ -1,15 +1,10 @@
 #ifndef NOTE_H
 #define NOTE_H
 
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include "core.h"
 
 namespace hornbeam
 {
-    struct Embedding {
-
-    };
 
     /*
      * Data structure for storing notes/text-files in the Obsidian vault,
@@ -22,15 +17,15 @@ namespace hornbeam
     class Note
     {
     public:
-        Note(const std::string &filePath, const Embedding &embedding) : filePath_(filePath), embedding_(embedding) {}
+        Note(const std::string &filePath, const arma::mat &embedding) : filePath_(filePath), embedding_(embedding) {}
 
         std::string getFilePath() const { return filePath_; }
-        Embedding getEmbedding() const { return embedding_; }
+        arma::mat getEmbedding() const { return embedding_; }
         int getGroupId() const;
 
     private:
         std::string filePath_;
-        Embedding embedding_;
+        arma::mat embedding_;
         int groupId_;
     };
 } // namespace hornbeam

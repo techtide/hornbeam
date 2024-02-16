@@ -8,7 +8,7 @@ std::vector<std::string> hornbeam::VaultReader::getFilePaths() const
 {
     std::vector<std::string> textFiles;
 
-    for (const auto &entry : std::filesystem::directory_iterator(vaultPath))
+    for (const auto &entry : std::filesystem::recursive_directory_iterator(vaultPath))
     {
         if (entry.is_regular_file() && isSupportedFileType(entry.path()))
         {
