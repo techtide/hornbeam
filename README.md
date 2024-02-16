@@ -51,7 +51,7 @@ You need the following tools in order to build Hornbeam:
 - GNU C Compiler
 - GNU Make
 
-To build, just execute ``make .``, and the program will appear as ``./hornbeam`` in the source directory.
+To build, just execute ``make all``, and the program will appear in the ``./build/bin`` directory.
 
 ## License:
 
