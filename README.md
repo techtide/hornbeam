@@ -42,17 +42,6 @@ You can install the Hornbeam binary for your platform under the 'Releases' tab o
 ./hornbeam <path to your notes directory or Obsidian vault>
 ```
 
-## Contribution:
-
-Contributions to Hornbeam are welcome! Whether you want to suggest new features, report bugs, or contribute code improvements, feel free to submit a pull request on GitHub.
-
-You need the following tools in order to build Hornbeam:
-
-- GNU C Compiler version 11.4.0
-- GNU Make
-
-To build, just execute ``make all``, and the program will appear in the ``./build/bin`` directory.
-
 ## License:
 
 Hornbeam is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
