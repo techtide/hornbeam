@@ -15,7 +15,7 @@ namespace hornbeam
     // Each model should implement this function, which accepts a string
     // containing all of the lines in a text file, and returns the word
     // embeddings matrix.
-    virtual arma::mat compute() = 0;
+    virtual arma::mat compute(const std::string& noteText) = 0;
 
     std::string getModelName() const;
 

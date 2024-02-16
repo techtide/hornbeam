@@ -1,6 +1,7 @@
 #include "core.h"
 #include "VaultReader.h"
 #include "Note.h"
+#include "NoteEmbeddingModel.h"
 
 std::vector<hornbeam::Note> &computeEmbeddedNotes(std::vector<std::string> &paths,
                                                   hornbeam::NoteEmbeddingModel& model,
