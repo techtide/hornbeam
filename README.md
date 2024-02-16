@@ -48,7 +48,7 @@ Contributions to Hornbeam are welcome! Whether you want to suggest new features,
 
 You need the following tools in order to build Hornbeam:
 
-- GNU C Compiler
+- GNU C Compiler version 11.4.0
 - GNU Make
 
 To build, just execute ``make all``, and the program will appear in the ``./build/bin`` directory.

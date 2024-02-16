@@ -7,6 +7,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_PATH_LENGTH 1024
+#define MAX_PATH_LENGTH 4096
 
 #endif
