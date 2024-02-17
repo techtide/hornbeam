@@ -9,6 +9,7 @@ find_package(OpenMP REQUIRED)
 find_package(LAPACK REQUIRED)
 find_package(BLAS REQUIRED)
 find_package(Armadillo REQUIRED)
+find_package(Boost REQUIRED)
 
 add_executable(hornbeam 
     src/main.cc
@@ -16,6 +17,7 @@ add_executable(hornbeam
     src/MongeElkanEmbedding.cc
 )
 
+target_link_libraries(hornbeam PRIVATE ${BOOST})
 target_link_libraries(hornbeam PRIVATE ${LAPACK_LIBRARIES} ${BLAS_LIBRARIES})
 target_link_libraries(hornbeam PRIVATE ${ARMADILLO_LIBRARIES})
 target_link_libraries(hornbeam PRIVATE mlpack)

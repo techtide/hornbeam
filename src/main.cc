@@ -15,10 +15,14 @@ std::vector<hornbeam::Note> computeEmbeddedNotes(std::vector<std::string> &paths
         // TODO(armanbhalla): Optimise by computing the hash of the note text,
         // and retrieving the respective embedding if the text file is a dup-
         // licate of another existing file in the notes directory.
+        std::cout << "Processing:" << path << std::endl;
+        // TODO(armanbhalla): Apply heavy pre-processing to account for misspellings,
+        // perhaps this could include lemmatisation or some other technique. Could also
+        // use Named Entity Recognition (NER) and build a topic map that could be used
+        // for easy pairwise similarity.
         const std::string noteText = reader.getFileText(path);
         arma::mat computedEmbedding = model.compute(noteText);
-        std::cout << computedEmbedding << std::endl;
-        hornbeam::Note new_note(path, computedEmbedding);
+        hornbeam::Note new_note(path, noteText, computedEmbedding);
         computed_notes.push_back(new_note);
     }
     return computed_notes;

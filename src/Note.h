@@ -17,16 +17,19 @@ namespace hornbeam
     class Note
     {
     public:
-        Note(const std::string &filePath, const arma::mat &embedding) : filePath_(filePath), embedding_(embedding) {}
+        Note(const std::string &filePath, const std::string &noteText, const arma::mat &embedding) : filePath_(filePath), text_(noteText), embedding_(embedding) {}
 
         std::string getFilePath() const { return filePath_; }
         arma::mat getEmbedding() const { return embedding_; }
-        int getGroupId() const;
+        
+        std::vector<std::string>& getCurrentBacklinks() const;
 
     private:
         std::string filePath_;
         arma::mat embedding_;
-        int groupId_;
+        
+        std::string text_;
+        std::vector<std::string> backlinks_;
     };
 } // namespace hornbeam
 

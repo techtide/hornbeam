@@ -1,14 +1,14 @@
 # Hornbeam: Obsidian Backlink Generator
 
-Hornbeam is an advanced tool designed to enhance your knowledge management experience within Obsidian or any note-taking system. Leveraging LLM (Large Language Model) based word embeddings, Hornbeam intelligently clusters your notes or files into sub-folders using `[[wikilink]]` notation, effectively assigning each file a 'tag' based on idea similarity. This process optimises the organization of your knowledge base, mitigating the "cold start" issues often encountered when building out a personal knowledge graph.
+Hornbeam is an advanced tool designed to enhance your knowledge management experience within Obsidian or any note-taking system. Leveraging LLM-based word embeddings (BERT) and the Leiden algorithm for hierarchial clustering, Hornbeam intelligently sorts your notes or files into sub-folders using `[[wikilink]]` notation. This effectively assigning each file a 'tag' based on idea similarity. 
 
-By utilizing Hornbeam, you can transform your note-taking experience, overcoming the initial challenges of organizing your knowledge base and unlocking new insights through enhanced connectivity and coherence within your personal knowledge graph.
+The goal is that Hornbeam will help you uncover connections between your ideas and notes, thereby optimising the organisation of your knowledge base. It also helps to mitigate the "cold start" issues often encountered when building out a personal knowledge graph. By utilizing Hornbeam, you can transform your note-taking experience, overcoming the initial challenges of organizing your knowledge base and unlocking new insights through enhanced connectivity and coherence within your personal knowledge graph.
 
 ## Key Features:
 
 - **Word Embedding Clustering**: Hornbeam utilizes advanced word embedding techniques to analyze the semantic relationships between your notes, enabling it to cluster them based on idea similarity.
 
-- **Automatic Tagging**: By utilizing `[[wikilink]]` notation commonly found in Obsidian or other note-taking systems, Hornbeam automatically assigns relevant tags to each note, streamlining the organization process.
+- **Automatic Tagging**: By utilizing `[[wikilink]]` notation commonly found in Obsidian or other note-taking systems, Hornbeam automatically assigns relevant tags to each note, streamlining the organisation process.
 
 - **Optimal Clustering**: The clustering algorithm employed by Hornbeam ensures that notes are grouped together in a manner that maximizes coherence and relevance within each cluster.
 
