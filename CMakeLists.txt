@@ -15,6 +15,7 @@ add_executable(hornbeam
     src/main.cc
     src/VaultReader.cc
     src/MongeElkanEmbedding.cc
+    src/Note.cc
 )
 
 target_link_libraries(hornbeam PRIVATE ${BOOST})

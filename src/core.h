@@ -10,5 +10,6 @@
 #include <mlpack/core.hpp>
 #include <armadillo>
 #include <tuple>
+#include <regex>
 
 #endif // CORE_H
