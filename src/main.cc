@@ -1,13 +1,15 @@
 #include "core.h"
+
 #include "VaultReader.h"
 #include "Note.h"
 #include "NoteEmbeddingModel.h"
+#include "MongeElkanEmbedding.h"
 
-std::vector<hornbeam::Note> &computeEmbeddedNotes(std::vector<std::string> &paths,
-                                                  hornbeam::NoteEmbeddingModel& model,
-                                                  hornbeam::VaultReader& reader)
+std::vector<hornbeam::Note> computeEmbeddedNotes(std::vector<std::string> &paths,
+                                                 hornbeam::NoteEmbeddingModel &model,
+                                                 hornbeam::VaultReader &reader)
 {
-    std::vector<hornbeam::Note> computed_notes(paths.size());
+    std::vector<hornbeam::Note> computed_notes;
     for (const auto &path : paths)
     {
         // TODO(armanbhalla): Optimise by computing the hash of the note text,
@@ -15,7 +17,9 @@ std::vector<hornbeam::Note> &computeEmbeddedNotes(std::vector<std::string> &path
         // licate of another existing file in the notes directory.
         const std::string noteText = reader.getFileText(path);
         arma::mat computedEmbedding = model.compute(noteText);
-        computed_notes.push_back(hornbeam::Note(path, computedEmbedding));
+        std::cout << computedEmbedding << std::endl;
+        hornbeam::Note new_note(path, computedEmbedding);
+        computed_notes.push_back(new_note);
     }
     return computed_notes;
 }

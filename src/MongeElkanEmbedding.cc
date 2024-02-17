@@ -1,31 +1,34 @@
 #include "MongeElkanEmbedding.h"
 
-arma::mat hornbeam::MongeElkanEmbedding::compute(const std::string &noteText)
+// Helper function to split a string into words
+std::vector<std::string> split(const std::string &str)
 {
-  std::vector<std::string> tokens;
-  std::istringstream iss(noteText);
-  std::string token;
-  while (iss >> token)
+  std::vector<std::string> words;
+  std::string word;
+  for (char c : str)
   {
-    tokens.push_back(token);
-  }
-
-  arma::mat result(tokens.size(), tokens.size(), arma::fill::zeros);
-
-  for (size_t i = 0; i < tokens.size(); ++i)
-  {
-    for (size_t j = 0; j < tokens.size(); ++j)
+    if (isspace(c))
     {
-      double similarity = calculateTokenSimilarity(tokens[i], tokens[j]);
-      result(i, j) = similarity;
+      if (!word.empty())
+      {
+        words.push_back(word);
+      }
+      word.clear();
+    }
+    else
+    {
+      word += c;
     }
   }
-
-  return result;
+  if (!word.empty())
+  {
+    words.push_back(word);
+  }
+  return words;
 }
 
 
-double calculateTokenSimilarity(const std::string &token1, const std::string &token2)
+double calculateTokenCosineSimilarity(const std::string &token1, const std::string &token2)
 {
   // Preprocess tokens (lowercase, remove punctuation)
   std::string lower_token1(token1);
@@ -85,29 +88,27 @@ double calculateTokenSimilarity(const std::string &token1, const std::string &to
   return similarity;
 }
 
-// Helper function to split a string into words
-std::vector<std::string> split(const std::string &str)
+
+arma::mat hornbeam::MongeElkanEmbedding::compute(const std::string &noteText)
 {
-  std::vector<std::string> words;
-  std::string word;
-  for (char c : str)
+  std::vector<std::string> tokens;
+  std::istringstream iss(noteText);
+  std::string token;
+  while (iss >> token)
   {
-    if (isspace(c))
+    tokens.push_back(token);
+  }
+
+  arma::mat result(tokens.size(), tokens.size(), arma::fill::zeros);
+
+  for (size_t i = 0; i < tokens.size(); ++i)
+  {
+    for (size_t j = 0; j < tokens.size(); ++j)
     {
-      if (!word.empty())
-      {
-        words.push_back(word);
-      }
-      word.clear();
-    }
-    else
-    {
-      word += c;
+      double similarity = calculateTokenCosineSimilarity(tokens[i], tokens[j]);
+      result(i, j) = similarity;
     }
   }
-  if (!word.empty())
-  {
-    words.push_back(word);
-  }
-  return words;
+
+  return result;
 }

@@ -8,6 +8,7 @@
 #include <vector>
 #include <unordered_map>
 #include <mlpack/core.hpp>
+#include <armadillo>
 #include <tuple>
 
 #endif // CORE_H
