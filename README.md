@@ -1,4 +1,4 @@
-# Hornbeam: Obsidian Backlink Generator
+# Hornbeam: Knowledge Base Bootstrapping
 
 Hornbeam is an advanced tool designed to enhance your knowledge management experience within Obsidian or any note-taking system. Leveraging LLM-based word embeddings (BERT) and the Leiden algorithm for hierarchial clustering, Hornbeam intelligently sorts your notes or files into sub-folders using `[[wikilink]]` notation. This effectively assigning each file a 'tag' based on idea similarity. 
 
